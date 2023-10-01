@@ -4,7 +4,6 @@ import { verifyCreateUserFields, verifyIfEmailExists } from "../middlewares";
 
 const userRoutes = Router();
 
-
 userRoutes.post("/usuario", verifyCreateUserFields, verifyIfEmailExists, CreateUserController.handle);
 
 

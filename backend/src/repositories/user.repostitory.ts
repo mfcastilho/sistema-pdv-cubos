@@ -1,5 +1,5 @@
 import { prismaClient } from "../config/database/prismaClient";
 
- const User = prismaClient.user;
+ const UserRepository = prismaClient.user;
 
- export default User;
+ export default UserRepository;

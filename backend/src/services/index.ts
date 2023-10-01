@@ -5,5 +5,5 @@ import GetAllCategoriesService from "./GetAllCategoriesService";
 
 export {
      CreateUserService,
-     
+     GetAllCategoriesService
 };

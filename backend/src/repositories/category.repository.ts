@@ -1,5 +1,5 @@
 import { prismaClient } from "../config/database/prismaClient";
 
-const Category = prismaClient.category;
+const CategoryRepository = prismaClient.category;
 
-export default Category;
+export default CategoryRepository;

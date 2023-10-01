@@ -1,8 +1,8 @@
-import Category from "./category.repository";
-import User from "./user.repostitory";
+import CategoryCategory from "./category.repository";
+import UserRepository from "./user.repostitory";
 
 
 export {
-     User,
-     Category
+     UserRepository,
+     CategoryCategory
 };

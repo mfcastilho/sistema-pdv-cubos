@@ -1,11 +1,11 @@
-import { Category } from "../repositories";
+import { CategoryCategory } from "../repositories";
 
 
 class GetAllCategoriesService {
      async execute() {
           try {
                
-               const repo = Category;
+               const repo = CategoryCategory;
                const categories = await repo.findMany();
 
                return categories;

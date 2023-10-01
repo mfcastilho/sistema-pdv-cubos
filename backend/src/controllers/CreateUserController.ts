@@ -4,10 +4,9 @@ import { Request, Response } from "express";
 
 class CreateUserController {
      async handle(req:Request, res:Response) {
+          
           try {
-
-               console.log("aqui");
-               
+        
                const { name, email, password } = req.body;
                const service = new CreateUserService();
 

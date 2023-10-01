@@ -1,11 +1,11 @@
-import { User } from "../repositories";
+import { UserRepository } from "../repositories";
 import { Request, Response, NextFunction } from 'express';
 
 const verifyIfEmailExists = async (req: Request, res: Response, next: NextFunction)=>{
      
      const { email } = req.body;
 
-     const repo = User;
+     const repo = UserRepository;
 
      const emailExists = await repo.findFirst({
           where: {
