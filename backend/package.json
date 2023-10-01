@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "prisma": {
+    "seed_category": "ts-node ./prisma/seeders/categorySeed.ts"
+  },
   "scripts": {
     "test": "jest",
     "dev": "",
