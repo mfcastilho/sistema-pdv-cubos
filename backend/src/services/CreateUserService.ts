@@ -1,14 +1,14 @@
 import { UserRepository } from "../repositories";
 import bcrypt from "bcrypt";
 
-interface CreateUserRequest {
+interface CreateUserDTO {
      name:string,
      email:string,
      password:string
 }
 
 class CreateUserService {
-     async execute({ name, email, password }:CreateUserRequest) {
+     async execute({ name, email, password }:CreateUserDTO) {
 
           try {
                 
