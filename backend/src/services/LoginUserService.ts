@@ -3,10 +3,10 @@ import jwt from "jsonwebtoken";
 
 
 interface LoginUserDTO {
-     id:string,
-     name:string,
+     id?:string,
+     name?:string,
      email:string,
-     password:string
+     password?:string
 }
 
 class LoginUserService {
