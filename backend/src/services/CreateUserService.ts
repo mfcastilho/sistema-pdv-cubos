@@ -1,4 +1,5 @@
 import { User } from "../repositories";
+import bcrypt from "bcrypt";
 
 interface CreateUserRequest {
      name:string,
@@ -12,12 +13,13 @@ class CreateUserService {
           try {
                 
                const repo = User;
+               const cryptedPassword = await bcrypt.hash(password, 10);
 
                const userCreate = repo.create({
                     data: {
                          name,
                          email,
-                         password
+                         password: cryptedPassword
                     },
                     select: {
                          id: true,
