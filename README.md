@@ -1,1 +1,1 @@
-# sistema-pdv-cubos
+# Sistema PVD - Cubos Academy
