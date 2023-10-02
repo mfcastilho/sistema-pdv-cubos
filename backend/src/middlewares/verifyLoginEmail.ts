@@ -2,7 +2,7 @@ import { UserRepository } from "../repositories";
 import { Request, Response, NextFunction } from 'express';
 
 
-const verifyEmailLogin = async (req: Request, res: Response, next: NextFunction)=>{
+const verifyLoginEmail = async (req: Request, res: Response, next: NextFunction)=>{
 
      try {
 
@@ -22,4 +22,4 @@ const verifyEmailLogin = async (req: Request, res: Response, next: NextFunction)
      }
 }
 
-export default verifyEmailLogin;
+export default verifyLoginEmail;
