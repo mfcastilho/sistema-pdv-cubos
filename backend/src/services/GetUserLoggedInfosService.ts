@@ -8,14 +8,14 @@ interface UserDTO {
 }
 
 class GetUserLoggedInfosService {
-     async execute() {
+     async execute({id}:UserDTO) {
           
           try {
                
                const repo = UserRepository;
 
                const userLogged: UserDTO | null = await repo.findFirst({
-                    where:{}
+                    where:{id}
                });
 
                return userLogged;
