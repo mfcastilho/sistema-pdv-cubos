@@ -9,7 +9,9 @@ class GetUserLoggedInfosController {
                
                const service = new GetUserLoggedInfosService();
 
-               const userLogged = await service.execute();
+               const userId = req.decoded.id;
+
+               const userLogged = await service.execute(userId);
      
                return res.status(200).json(userLogged);
 
