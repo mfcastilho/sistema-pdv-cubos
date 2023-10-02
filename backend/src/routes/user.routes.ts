@@ -2,7 +2,8 @@ import { Router } from "express";
 
 import {  CreateUserController, 
           LoginUserController, 
-          GetUserLoggedInfosController } from "../controllers";
+          GetUserLoggedInfosController,
+          EditUserLoggedInfosController } from "../controllers";
 
 import {  verifyCreateUserFields, 
           verifyIfEmailExists,
@@ -18,6 +19,8 @@ userRoutes.post("/usuario", verifyCreateUserFields, verifyIfEmailExists, CreateU
 userRoutes.post("/login", verifyLoginUserFields, verifyLoginEmail, verifyLoginPassword, LoginUserController.handle);
 
 userRoutes.get("/usuario", verifyToken, GetUserLoggedInfosController.handle);
+
+userRoutes.put("/usuario", verifyToken, verifyCreateUserFields, verifyIfEmailExists, EditUserLoggedInfosController.handle);
 
 
 export default userRoutes;
