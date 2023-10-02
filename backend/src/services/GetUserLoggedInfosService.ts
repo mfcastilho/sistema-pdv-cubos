@@ -14,11 +14,15 @@ class GetUserLoggedInfosService {
                
                const repo = UserRepository;
 
-               const userLogged: UserDTO | null = await repo.findFirst({
+               const user: UserDTO | null = await repo.findFirst({
                     where:{id}
                });
 
-               return userLogged;
+               if(user) {
+                    const { password, ...userLogged } = user;
+
+                    return userLogged;
+               }
 
           } catch (error) {
                throw error;
