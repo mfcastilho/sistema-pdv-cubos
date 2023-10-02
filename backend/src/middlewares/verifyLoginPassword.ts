@@ -18,8 +18,8 @@ const verifyLoginPassword = async (req: Request, res: Response, next: NextFuncti
 
           if(!cryptedPassword) return res.status(500).json({error: "Senha não encontrada."});
 
-          const passwordIsValid = bcrypt.compare(password, cryptedPassword);
-
+          const passwordIsValid = await bcrypt.compare(password, cryptedPassword);
+          
           if(!passwordIsValid) return res.status(401).json({error: "Email e/ou senha incorreto."});
 
           return next();
