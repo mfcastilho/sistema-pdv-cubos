@@ -2,7 +2,7 @@
 CREATE TABLE "products" (
     "id" TEXT NOT NULL,
     "description" TEXT NOT NULL,
-    "stock_quantity" INTEGER NOT NULL,
+    "stockQuantity" INTEGER NOT NULL,
     "value" INTEGER NOT NULL,
     "categoryId" TEXT NOT NULL,
 

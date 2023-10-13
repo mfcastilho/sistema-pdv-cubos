@@ -9,11 +9,11 @@ class EditProductController {
 
                const { id } = req.params;
 
-               const { description, stock_quantity, value, categoryId } = req.body;
+               const { description, stockQuantity, value, categoryId } = req.body;
      
                const service = new EditProductService();
      
-               const productUpdated = await service.execute({ id, description, stock_quantity, value, categoryId });
+               const productUpdated = await service.execute({ id, description, stockQuantity, value, categoryId });
 
                return res.status(200).json(productUpdated);
 

@@ -4,13 +4,13 @@ import { convertCurrentToCents } from "../utils";
 
 interface ProductDTO {
      description:string;
-     stock_quantity:number;
+     stockQuantity:number;
      value:number;
      categoryId:string
 }
 
 class RegisterProductService {
-     async execute({ description, stock_quantity, value, categoryId }: ProductDTO) {
+     async execute({ description, stockQuantity, value, categoryId }: ProductDTO) {
 
           try {
                
@@ -21,7 +21,7 @@ class RegisterProductService {
                const productRegistered = await repo.create({
                     data: {
                          description, 
-                         stock_quantity, 
+                         stockQuantity, 
                          value: centsValue, 
                          categoryId
                     }

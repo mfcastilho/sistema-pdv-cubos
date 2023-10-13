@@ -4,13 +4,13 @@ import { convertCurrentToCents } from "../utils";
 interface ProductDTO {
      id: string
      description:string;
-     stock_quantity:number;
+     stockQuantity:number;
      value:number;
      categoryId:string
 }
 
 class EditProductService {
-     async execute({ id, description, stock_quantity, value, categoryId }: ProductDTO) {
+     async execute({ id, description, stockQuantity, value, categoryId }: ProductDTO) {
 
           try {
 
@@ -24,7 +24,7 @@ class EditProductService {
 
                     if(description) product.description = description;
 
-                    if(stock_quantity) product.stock_quantity = stock_quantity;
+                    if(stockQuantity) product.stockQuantity = stockQuantity;
 
                     if(value) product.value = convertCurrentToCents(value);
 

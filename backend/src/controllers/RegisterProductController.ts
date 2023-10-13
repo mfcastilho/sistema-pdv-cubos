@@ -7,11 +7,11 @@ class RegisterProductController {
 
           try {
 
-               const { description, stock_quantity, value, categoryId } = req.body;
+               const { description, stockQuantity, value, categoryId } = req.body;
 
                const service = new RegisterProductService();
 
-               const productRegistered = await service.execute({ description, stock_quantity, value, categoryId });
+               const productRegistered = await service.execute({ description, stockQuantity, value, categoryId });
 
                return res.status(201).json(productRegistered);
                
