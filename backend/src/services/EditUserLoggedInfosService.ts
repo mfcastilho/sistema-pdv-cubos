@@ -13,24 +13,32 @@ class EditUserLoggedInfosService {
          
           try {
                const repo = UserRepository;
-          
-               const cryptedPassword = await bcrypt.hash(password, 10);
-     
-               const user: UserDTO | null = await repo.update({
-                    where:{id},
-                    data: {
-                         name, 
-                         email, 
-                         password: cryptedPassword
-                    }
+
+               const user: UserDTO | null = await repo.findUnique({
+                    where: {id}
                });
 
                if(user) {
-                    const { password, ...userUpdated } = user;
 
-                    return userUpdated;
-               }
-               
+                    if(name) user.name = name;
+
+                    if(email) user.email = email;
+
+                    if(password) {
+                         const cryptedPassword = await bcrypt.hash(password, 10);
+                         user.password = cryptedPassword;
+                    }         
+                    const userUpdated: UserDTO | null = await repo.update({
+                         where:{id},
+                         data: user
+                    });
+     
+                    if(userUpdated) {
+                         const { password, ...rest } = userUpdated;
+     
+                         return rest;
+                    }
+               }  
           } catch (error) {
                throw error;
           }
