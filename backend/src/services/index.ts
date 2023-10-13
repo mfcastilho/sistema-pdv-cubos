@@ -3,6 +3,7 @@ import EditProductService from "./EditProductService";
 import EditUserLoggedInfosService from "./EditUserLoggedInfosService";
 import GetAllCategoriesService from "./GetAllCategoriesService";
 import GetAllProductsService from "./GetAllProductsService";
+import GetProductService from "./GetProductService";
 import GetUserLoggedInfosService from "./GetUserLoggedInfosService";
 import LoginUserService from "./LoginUserService";
 import RegisterProductService from "./RegisterProductService";
@@ -16,5 +17,6 @@ export {
      EditUserLoggedInfosService,
      RegisterProductService,
      EditProductService,
-     GetAllProductsService
+     GetAllProductsService,
+     GetProductService
 };
