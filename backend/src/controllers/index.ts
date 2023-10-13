@@ -1,8 +1,11 @@
 import CreateUserController from "./CreateUserController";
+import EditProductController from "./EditProductController";
 import EditUserLoggedInfosController from "./EditUserLoggedInfosController";
 import GetAllCategoriesController from "./GetAllCategoriesController";
 import GetUserLoggedInfosController from "./GetUserLoggedInfosController";
 import LoginUserController from "./LoginUserController";
+import RegisterProductController from "./RegisterProductController";
+
 
 
 
@@ -11,5 +14,7 @@ export {
      GetAllCategoriesController,
      LoginUserController,
      GetUserLoggedInfosController,
-     EditUserLoggedInfosController
+     EditUserLoggedInfosController,
+     RegisterProductController,
+     EditProductController
 };
