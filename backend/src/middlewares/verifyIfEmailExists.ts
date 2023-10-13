@@ -7,28 +7,32 @@ const verifyIfEmailExists = async (req: Request, res: Response, next: NextFuncti
 
           const { email } = req.body;
      
-          const repo = UserRepository;
+          if(email) {
+               const repo = UserRepository;
      
-          const emailExists = await repo.findFirst({
-               where: {
-                    email:email
-               }
-          });
-     
-          if(req.decoded){
-               
-               const userLoggedId = req.decoded.id;
-     
-               const userLogged = await repo.findUnique({
-                    where:{id:userLoggedId}
+               const emailExists = await repo.findFirst({
+                    where: {
+                         email:email
+                    }
                });
           
+               if(req.decoded){
+                    
+                    const userLoggedId = req.decoded.id;
+          
+                    const userLogged = await repo.findUnique({
+                         where:{id:userLoggedId}
+                    });
                
-               if(userLogged?.email === email) return next();    
+                    
+                    if(userLogged?.email === email) return next();    
+               }
+          
+               if(emailExists) return res.status(400).json({error: "Email já está cadastrado."});
+          
+               return next();
           }
-     
-          if(emailExists) return res.status(400).json({error: "Email já está cadastrado."});
-     
+
           return next();
 
      } catch (error) {
