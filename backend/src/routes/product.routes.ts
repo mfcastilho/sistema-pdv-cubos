@@ -3,7 +3,8 @@ import { Router } from "express";
 import { RegisterProductController, 
          EditProductController, 
          GetAllProductsController,
-         GetProductController } from "../controllers";
+         GetProductController,
+         DeleteProductController } from "../controllers";
 
 import { verifyToken, 
          verifyProductFields, 
@@ -21,5 +22,6 @@ productRoutes.get("/produto", verifyToken, GetAllProductsController.handle);
 
 productRoutes.get("/produto/:id", verifyToken, verifyIfProductExists, GetProductController.handle);
 
+productRoutes.delete("/produto/:id", verifyToken, verifyIfProductExists, DeleteProductController.handle);
 
 export default productRoutes;
