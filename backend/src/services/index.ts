@@ -1,4 +1,5 @@
 import CreateUserService from "./CreateUserService";
+import DeleteProductService from "./DeleteProductService";
 import EditProductService from "./EditProductService";
 import EditUserLoggedInfosService from "./EditUserLoggedInfosService";
 import GetAllCategoriesService from "./GetAllCategoriesService";
@@ -7,6 +8,7 @@ import GetProductService from "./GetProductService";
 import GetUserLoggedInfosService from "./GetUserLoggedInfosService";
 import LoginUserService from "./LoginUserService";
 import RegisterProductService from "./RegisterProductService";
+
 
 
 export {
@@ -18,5 +20,6 @@ export {
      RegisterProductService,
      EditProductService,
      GetAllProductsService,
-     GetProductService
+     GetProductService,
+     DeleteProductService
 };
