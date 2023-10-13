@@ -6,11 +6,14 @@ import {  CreateUserController,
           EditUserLoggedInfosController } from "../controllers";
 
 import {  verifyCreateUserFields, 
+          verifyEditUserFields, 
           verifyIfEmailExists,
           verifyLoginEmail,
           verifyLoginPassword,
           verifyLoginUserFields,
           verifyToken } from "../middlewares";
+
+          
 
 const userRoutes = Router();
 
@@ -20,7 +23,7 @@ userRoutes.post("/login", verifyLoginUserFields, verifyLoginEmail, verifyLoginPa
 
 userRoutes.get("/usuario", verifyToken, GetUserLoggedInfosController.handle);
 
-userRoutes.put("/usuario", verifyToken, verifyCreateUserFields, verifyIfEmailExists, EditUserLoggedInfosController.handle);
+userRoutes.put("/usuario", verifyToken, verifyEditUserFields, verifyIfEmailExists, EditUserLoggedInfosController.handle);
 
 
 export default userRoutes;
