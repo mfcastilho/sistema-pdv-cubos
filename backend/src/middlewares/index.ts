@@ -2,6 +2,7 @@ import verifyCreateUserFields from "./verifyCreateUserFields";
 import verifyEditUserFields from "./verifyEditUserFields";
 import verifyIfCategoryExists from "./verifyIfCategoryExists";
 import verifyIfEmailExists from "./verifyIfEmailExists";
+import verifyIfProductExists from "./verifyIfProductExists";
 import verifyLoginEmail from "./verifyLoginEmail";
 import verifyLoginPassword from "./verifyLoginPassword";
 import verifyLoginUserFields from "./verifyLoginUserFields";
@@ -19,5 +20,6 @@ export {
      verifyToken,
      verifyIfCategoryExists,
      verifyProductFields,
-     verifyEditUserFields
+     verifyEditUserFields,
+     verifyIfProductExists
 };
