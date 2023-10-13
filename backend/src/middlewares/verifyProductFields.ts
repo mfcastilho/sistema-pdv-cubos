@@ -15,19 +15,23 @@ const verifyRegisterProductFields = async (req: Request, res: Response, next: Ne
                     "any.required": "O campo 'description' é obrigatório." 
                }),
 
-          stock_quantity: Joi.number().integer()
+          stockQuantity: Joi.number().integer()
                .required()
+               .min(0)
                .messages({
-                    "number.base": "O campo 'stock_quantity' deve ser um número.",
-                    "number.integer": "O campo 'stock_quantity' deve ser um número inteiro.",
-                    "any.required": "O campo 'stock_quantity' é obrigatório.",
+                    "number.base": "O campo 'stockQuantity' deve ser um número.",
+                    "number.min": "O campo 'stockQuantity' não aceita valores negativos",
+                    "number.integer": "O campo 'stockQuantity' deve ser um número inteiro.",
+                    "any.required": "O campo 'stockQuantity' é obrigatório.",
                     "number.empty": "Todos os campos são obrigatórios."
                }),
           
           value: Joi.number().precision(2)
                .required()
+               .min(0.1)
                .messages({
                     "number.base": "O campo 'value' deve ser um número.",
+                    "number.min": "O campo 'value' não aceita o valor zero e valores negativos",
                     "number.integer": "O campo 'value' deve ser um número decimal.",
                     "any.required": "O campo 'value' é obrigatório.",
                     "number.empty": "Todos os campos são obrigatórios."
