@@ -1,5 +1,5 @@
 import express from "express";
-import { userRoutes, categoryRoutes } from "./routes/index";
+import { userRoutes, categoryRoutes, productRoutes } from "./routes/index";
 import { config } from "dotenv";
 config();
 
@@ -9,6 +9,7 @@ app.use(express.json());
 
 app.use(userRoutes);
 app.use(categoryRoutes);
+app.use(productRoutes);
 
 
 export default app;
