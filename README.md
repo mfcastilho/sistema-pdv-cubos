@@ -1,7 +1,6 @@
-# desafio-backend-05-pdv
 ![](https://i.imgur.com/xG74tOh.png)
 
-# Desafio Módulo 5 - Backend
+# Sistema PVD - Desafio Módulo 5 - Backend - Cubos Academy
 
 Seja bem vindo(a) ao desafio do módulo 5.
 
