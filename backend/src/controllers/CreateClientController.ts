@@ -16,9 +16,7 @@ class CreateClientController {
 
                return res.status(201).json(clientCreated);
                
-          } catch (error) {
-               console.log(error);
-               
+          } catch (error) {    
                return res.status(500).json({error: "Erro interno do servidor"});
           }
      }
