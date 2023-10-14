@@ -1,6 +1,7 @@
 import validateRequestBody from "./validateRequestBody";
 import verifyCreateUserFields from "./verifyCreateUserFields";
 import verifyEditUserFields from "./verifyEditUserFields";
+import verifyIfAddressIsRegistered from "./verifyIfAddressIsRegistered";
 import verifyIfCategoryExists from "./verifyIfCategoryExists";
 import verifyIfCpfExists from "./verifyIfCpfExists";
 import verifyIfEmailExists from "./verifyIfEmailExists";
@@ -25,5 +26,6 @@ export {
      verifyEditUserFields,
      verifyIfProductExists,
      validateRequestBody,
-     verifyIfCpfExists
+     verifyIfCpfExists,
+     verifyIfAddressIsRegistered
 };
