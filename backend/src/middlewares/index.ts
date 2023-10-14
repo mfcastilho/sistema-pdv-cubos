@@ -3,6 +3,7 @@ import verifyCreateUserFields from "./verifyCreateUserFields";
 import verifyEditUserFields from "./verifyEditUserFields";
 import verifyIfAddressIsRegistered from "./verifyIfAddressIsRegistered";
 import verifyIfCategoryExists from "./verifyIfCategoryExists";
+import verifyIfClientExists from "./verifyIfClientExists";
 import verifyIfCpfExists from "./verifyIfCpfExists";
 import verifyIfEmailExists from "./verifyIfEmailExists";
 import verifyIfProductExists from "./verifyIfProductExists";
@@ -27,5 +28,6 @@ export {
      verifyIfProductExists,
      validateRequestBody,
      verifyIfCpfExists,
-     verifyIfAddressIsRegistered
+     verifyIfAddressIsRegistered,
+     verifyIfClientExists
 };
