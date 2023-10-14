@@ -1,3 +1,4 @@
+import CreateClientService from "./CreateClientService";
 import CreateUserService from "./CreateUserService";
 import DeleteProductService from "./DeleteProductService";
 import EditProductService from "./EditProductService";
@@ -21,5 +22,6 @@ export {
      EditProductService,
      GetAllProductsService,
      GetProductService,
-     DeleteProductService
+     DeleteProductService,
+     CreateClientService
 };
