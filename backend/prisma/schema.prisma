@@ -29,12 +29,14 @@ model Category {
 }
 
 model Product {
-  id             String   @id @default(uuid())
-  description    String
+  id            String          @id @default(uuid())
+  description   String
   stockQuantity Int
-  value          Int
-  categoryId     String
-  category       Category @relation(fields: [categoryId], references: [id])
+  value         Int
+  productImage  String?
+  categoryId    String
+  category      Category        @relation(fields: [categoryId], references: [id])
+  OrderProducts OrderProducts[]
 
   @@map("products")
 }
@@ -45,13 +47,14 @@ model Client {
   email   String    @unique
   cpf     String    @unique
   Address Address[]
+  Order   Order[]
 
   @@map("clients")
 }
 
 model Address {
   id       String @id @default(uuid())
-  zipCode      String
+  zipCode  String
   street   String
   number   String
   district String
@@ -62,4 +65,27 @@ model Address {
   client   Client @relation(fields: [clientId], references: [id])
 
   @@map("adresses")
+}
+
+model Order {
+  id            String          @id @default(uuid())
+  clientId      String
+  client        Client          @relation(fields: [clientId], references: [id])
+  observation   String
+  totalValue    Int
+  OrderProducts OrderProducts[]
+
+  @@map("orders")
+}
+
+model OrderProducts {
+  id              String  @id @default(uuid())
+  productQuantity Int
+  productValue    Int
+  orderId         String
+  order           Order   @relation(fields: [orderId], references: [id])
+  productId       String
+  product         Product @relation(fields: [productId], references: [id])
+
+  @@map("order_products")
 }
