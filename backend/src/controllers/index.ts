@@ -5,6 +5,7 @@ import EditClientController from "./EditClientController";
 import EditProductController from "./EditProductController";
 import EditUserLoggedInfosController from "./EditUserLoggedInfosController";
 import GetAllCategoriesController from "./GetAllCategoriesController";
+import GetAllClientsController from "./GetAllClientsController";
 import GetAllProductsController from "./GetAllProductsController";
 import GetProductController from "./GetProductController";
 import GetUserLoggedInfosController from "./GetUserLoggedInfosController";
@@ -26,5 +27,6 @@ export {
      GetProductController,
      DeleteProductController,
      CreateClientController,
-     EditClientController
+     EditClientController,
+     GetAllClientsController
 };
