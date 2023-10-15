@@ -21,45 +21,38 @@ interface AddressDTO {
 class CreateClientService {
      async execute({ name, cpf, email }: ClientDTO, { zipCode, street, number, district, city, state }: AddressDTO) {
 
-          try {
-               
-               const clientRepo = ClientRepository;
+          const clientRepo = ClientRepository;
 
-               const addressRepo = AddressRepository;
-     
-               const clientCreated = await clientRepo.create({
-                    data : { name, cpf, email }
-               });
+          const addressRepo = AddressRepository;
 
-               const addressData = { zipCode, street, number, district, city, state, clientId: clientCreated.id };
+          const clientCreated = await clientRepo.create({
+               data : { name, cpf, email }
+          });
 
-               addressData.zipCode = addressData.zipCode ?? "N/A";
-               addressData.street = addressData.street ?? "N/A";
-               addressData.number = addressData.number ?? "N/A";
-               addressData.district = addressData.district ?? "N/A";
-               addressData.city = addressData.city ?? "N/A";
-               addressData.state = addressData.state ?? "xx";
-               
-               addressData.state = addressData.state.toUpperCase();
+          const addressData = { zipCode, street, number, district, city, state, clientId: clientCreated.id };
 
-     
-               const addressCreated: AddressDTO | null = await addressRepo.create({
-                    data:addressData
-               });
+          addressData.zipCode = addressData.zipCode ?? "N/A";
+          addressData.street = addressData.street ?? "N/A";
+          addressData.number = addressData.number ?? "N/A";
+          addressData.district = addressData.district ?? "N/A";
+          addressData.city = addressData.city ?? "N/A";
+          addressData.state = addressData.state ?? "xx";
+          
+          addressData.state = addressData.state.toUpperCase();
 
-               delete addressCreated.id;
 
-               const client = {
-                    ...clientCreated,
-                    ...addressCreated
-               }
+          const addressCreated: AddressDTO | null = await addressRepo.create({
+               data:addressData
+          });
 
-               return client;
-     
-          } catch (error) {
-               throw error;
+          delete addressCreated.id;
+
+          const client = {
+               ...clientCreated,
+               ...addressCreated
           }
 
+          return client;
      }
 }
 

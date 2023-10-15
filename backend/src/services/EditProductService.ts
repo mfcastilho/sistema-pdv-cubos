@@ -11,35 +11,28 @@ interface ProductDTO {
 
 class EditProductService {
      async execute({ id, description, stockQuantity, value, categoryId }: ProductDTO) {
+          const repo = ProductRepository;
 
-          try {
+          const product: ProductDTO | null = await repo.findUnique({
+               where: {id}
+          });
 
-               const repo = ProductRepository;
+          if(product) {
 
-               const product: ProductDTO | null = await repo.findUnique({
-                    where: {id}
+               if(description) product.description = description;
+
+               if(stockQuantity) product.stockQuantity = stockQuantity;
+
+               if(value) product.value = convertCurrentToCents(value);
+
+               if(categoryId) product.categoryId = categoryId;
+
+               const productUpdated = await repo.update({
+                    where:{id},
+                    data: product
                });
 
-               if(product) {
-
-                    if(description) product.description = description;
-
-                    if(stockQuantity) product.stockQuantity = stockQuantity;
-
-                    if(value) product.value = convertCurrentToCents(value);
-
-                    if(categoryId) product.categoryId = categoryId;
-
-                    const productUpdated = await repo.update({
-                         where:{id},
-                         data: product
-                    });
-
-                    return productUpdated;
-               }
-               
-          } catch (error) {
-               throw error;
+               return productUpdated;
           }
      }
 }

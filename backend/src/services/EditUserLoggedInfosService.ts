@@ -11,40 +11,33 @@ interface UserDTO {
 class EditUserLoggedInfosService {
      async execute({ id, name, email, password }: UserDTO) {
          
-          try {
-               const repo = UserRepository;
+          const repo = UserRepository;
 
-               const user: UserDTO | null = await repo.findUnique({
-                    where: {id}
+          const user: UserDTO | null = await repo.findUnique({
+               where: {id}
+          });
+
+          if(user) {
+
+               if(name) user.name = name;
+
+               if(email) user.email = email;
+
+               if(password) {
+                    const cryptedPassword = await bcrypt.hash(password, 10);
+                    user.password = cryptedPassword;
+               }         
+               const userUpdated: UserDTO | null = await repo.update({
+                    where:{id},
+                    data: user
                });
 
-               if(user) {
+               if(userUpdated) {
+                    const { password, ...rest } = userUpdated;
 
-                    if(name) user.name = name;
-
-                    if(email) user.email = email;
-
-                    if(password) {
-                         const cryptedPassword = await bcrypt.hash(password, 10);
-                         user.password = cryptedPassword;
-                    }         
-                    const userUpdated: UserDTO | null = await repo.update({
-                         where:{id},
-                         data: user
-                    });
-     
-                    if(userUpdated) {
-                         const { password, ...rest } = userUpdated;
-     
-                         return rest;
-                    }
-               }  
-          } catch (error) {
-               throw error;
-          }
-
-
-          
+                    return rest;
+               }
+          }     
      }
 }
 

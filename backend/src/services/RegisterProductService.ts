@@ -12,26 +12,20 @@ interface ProductDTO {
 class RegisterProductService {
      async execute({ description, stockQuantity, value, categoryId }: ProductDTO) {
 
-          try {
-               
-               const repo = ProductRepository;
+          const repo = ProductRepository;
 
-               const centsValue = convertCurrentToCents(value);
+          const centsValue = convertCurrentToCents(value);
 
-               const productRegistered = await repo.create({
-                    data: {
-                         description, 
-                         stockQuantity, 
-                         value: centsValue, 
-                         categoryId
-                    }
-               });
-     
-               return productRegistered;
+          const productRegistered = await repo.create({
+               data: {
+                    description, 
+                    stockQuantity, 
+                    value: centsValue, 
+                    categoryId
+               }
+          });
 
-          } catch (error) {
-               throw error;
-          }
+          return productRegistered;
      }
 }
 

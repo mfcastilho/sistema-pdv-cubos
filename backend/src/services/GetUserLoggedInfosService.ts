@@ -10,22 +10,16 @@ interface UserDTO {
 class GetUserLoggedInfosService {
      async execute({id}:UserDTO) {
           
-          try {
-               
-               const repo = UserRepository;
+          const repo = UserRepository;
 
-               const user: UserDTO | null = await repo.findFirst({
-                    where:{id}
-               });
+          const user: UserDTO | null = await repo.findFirst({
+               where:{id}
+          });
 
-               if(user) {
-                    const { password, ...userLogged } = user;
+          if(user) {
+               const { password, ...userLogged } = user;
 
-                    return userLogged;
-               }
-
-          } catch (error) {
-               throw error;
+               return userLogged;
           }
      }
 }

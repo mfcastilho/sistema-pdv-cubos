@@ -12,27 +12,22 @@ interface LoginUserDTO {
 class LoginUserService {
      async execute({ email }:LoginUserDTO) {
           
-          try {
-               const repo = UserRepository;
+          const repo = UserRepository;
 
-               const user:LoginUserDTO | null = await repo.findFirst({
-                    where: {email}
-               });
+          const user:LoginUserDTO | null = await repo.findFirst({
+               where: {email}
+          });
 
-               if(user) {
-                    const jwtSecretkey = process.env.JWT_SECRET_KEY; 
+          if(user) {
+               const jwtSecretkey = process.env.JWT_SECRET_KEY; 
 
-                    if(!jwtSecretkey) return new Error("A chave secreta JWT não está definida.");
+               if(!jwtSecretkey) return new Error("A chave secreta JWT não está definida.");
 
-                    const token = jwt.sign({id:user.id}, jwtSecretkey, {expiresIn:"24h"});
+               const token = jwt.sign({id:user.id}, jwtSecretkey, {expiresIn:"24h"});
 
-                    const { password, ...userLogged } = user;
+               const { password, ...userLogged } = user;
 
-                    return {user: userLogged, token};                   
-               }
-
-          } catch (error) {
-               throw error;
+               return {user: userLogged, token};                   
           }
      }
 }
