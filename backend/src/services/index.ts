@@ -7,6 +7,7 @@ import EditUserLoggedInfosService from "./EditUserLoggedInfosService";
 import GetAllCategoriesService from "./GetAllCategoriesService";
 import GetAllClientsService from "./GetAllClientsService";
 import GetAllProductsService from "./GetAllProductsService";
+import GetClientService from "./GetClientService";
 import GetProductService from "./GetProductService";
 import GetUserLoggedInfosService from "./GetUserLoggedInfosService";
 import LoginUserService from "./LoginUserService";
@@ -27,5 +28,6 @@ export {
      DeleteProductService,
      CreateClientService,
      EditClientService,
-     GetAllClientsService
+     GetAllClientsService,
+     GetClientService
 };
