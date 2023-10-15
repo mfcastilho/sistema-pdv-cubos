@@ -14,7 +14,7 @@ interface AddressDTO {
      district: string;
      city: string;
      state: string;
-     clientId: string;
+
 }
 
 
@@ -31,7 +31,7 @@ class CreateClientService {
                     data : { name, cpf, email }
                });
 
-               const addressData: AddressDTO = { zipCode, street, number, district, city, state, clientId: clientCreated.id };
+               const addressData = { zipCode, street, number, district, city, state, clientId: clientCreated.id };
 
                addressData.zipCode = addressData.zipCode ?? "N/A";
                addressData.street = addressData.street ?? "N/A";
