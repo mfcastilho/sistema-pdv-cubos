@@ -1,17 +1,21 @@
 import { Router } from "express";
 
-import { CreateClientController } from "../controllers";
+import { CreateClientController, EditClientController } from "../controllers";
 
 import { validateRequestBody,
          verifyToken,
          verifyIfEmailExists,
-         verifyIfCpfExists } from "../middlewares";
+         verifyIfCpfExists, 
+         verifyIfAddressIsRegistered,
+         verifyIfClientExists } from "../middlewares";
 
-import { createClientSchema } from "../schemas"
+import { createClientSchema, editClientSchema } from "../schemas"
 
 const clientRoutes = Router();
 
 
-clientRoutes.post("/cliente", verifyToken, validateRequestBody(createClientSchema), verifyIfEmailExists, verifyIfCpfExists, CreateClientController.handle);
+clientRoutes.post("/", verifyToken, validateRequestBody(createClientSchema), verifyIfEmailExists, verifyIfCpfExists, CreateClientController.handle);
+
+clientRoutes.put("/:id", verifyToken, verifyIfClientExists, verifyIfAddressIsRegistered, validateRequestBody(editClientSchema), verifyIfEmailExists, verifyIfCpfExists, EditClientController.handle);
 
 export default clientRoutes;

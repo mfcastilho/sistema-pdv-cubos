@@ -18,10 +18,10 @@ productRoutes.post("/produto", verifyToken, verifyProductFields, verifyIfCategor
 
 productRoutes.put("/produto/:id", verifyToken, verifyProductFields, verifyIfCategoryExists, EditProductController.handle);
 
-productRoutes.get("/produto", verifyToken, GetAllProductsController.handle);
+productRoutes.get("/", verifyToken, GetAllProductsController.handle);
 
-productRoutes.get("/produto/:id", verifyToken, verifyIfProductExists, GetProductController.handle);
+productRoutes.get("/:id", verifyToken, verifyIfProductExists, GetProductController.handle);
 
-productRoutes.delete("/produto/:id", verifyToken, verifyIfProductExists, DeleteProductController.handle);
+productRoutes.delete("/:id", verifyToken, verifyIfProductExists, DeleteProductController.handle);
 
 export default productRoutes;
