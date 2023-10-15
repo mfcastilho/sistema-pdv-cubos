@@ -5,8 +5,6 @@ import { ProductRepository } from "../repositories";
 class GetAllProductsService {
      async execute(categoria_id : string | undefined) {
 
-          try {
-
                const repo = ProductRepository;
 
                if(categoria_id) {
@@ -21,10 +19,6 @@ class GetAllProductsService {
                const products = await repo.findMany();
 
                return products;
-
-          } catch (error) {
-               throw error;
-          }
      }
 }
 
