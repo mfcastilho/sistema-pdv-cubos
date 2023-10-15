@@ -14,9 +14,9 @@ import { verifyToken,
 const productRoutes = Router();
 
 
-productRoutes.post("/produto", verifyToken, verifyProductFields, verifyIfCategoryExists, RegisterProductController.handle);
+productRoutes.post("/", verifyToken, verifyProductFields, verifyIfCategoryExists, RegisterProductController.handle);
 
-productRoutes.put("/produto/:id", verifyToken, verifyProductFields, verifyIfCategoryExists, EditProductController.handle);
+productRoutes.put("/:id", verifyToken, verifyProductFields, verifyIfCategoryExists, EditProductController.handle);
 
 productRoutes.get("/", verifyToken, GetAllProductsController.handle);
 
