@@ -14,6 +14,7 @@ interface AddressDTO {
      district: string;
      city: string;
      state: string;
+     clientId: string;
 }
 
 
@@ -29,17 +30,21 @@ class CreateClientService {
                const clientCreated = await clientRepo.create({
                     data : { name, cpf, email }
                });
+
+               const addressData: AddressDTO = { zipCode, street, number, district, city, state, clientId: clientCreated.id };
+
+               addressData.zipCode = addressData.zipCode ?? "N/A";
+               addressData.street = addressData.street ?? "N/A";
+               addressData.number = addressData.number ?? "N/A";
+               addressData.district = addressData.district ?? "N/A";
+               addressData.city = addressData.city ?? "N/A";
+               addressData.state = addressData.state ?? "xx";
+               
+               addressData.state = addressData.state.toUpperCase();
+
      
                const addressCreated: AddressDTO | null = await addressRepo.create({
-                    data:{ 
-                         zipCode, 
-                         street, 
-                         number, 
-                         district, 
-                         city, 
-                         state, 
-                         clientId: clientCreated.id 
-                    }
+                    data:addressData
                });
 
                delete addressCreated.id;
