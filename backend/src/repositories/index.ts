@@ -3,6 +3,9 @@ import UserRepository from "./user.repostitory";
 import ProductRepository from "./product.repository";
 import ClientRepository from "./client.repository";
 import AddressRepository from "./address.repository";
+import OrderRepository from "./order.repository";
+import OrderProductsRepository from "./orderProducts.repository";
+
 
 
 
@@ -11,5 +14,7 @@ export {
      CategoryRepository,
      ClientRepository,
      ProductRepository,
-     AddressRepository
+     AddressRepository,
+     OrderRepository,
+     OrderProductsRepository
 };
