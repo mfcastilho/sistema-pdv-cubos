@@ -1,4 +1,5 @@
 import CreateClientController from "./CreateClientController";
+import CreateOrderController from "./CreateOrderController";
 import CreateUserController from "./CreateUserController";
 import DeleteProductController from "./DeleteProductController";
 import EditClientController from "./EditClientController";
@@ -30,5 +31,6 @@ export {
      CreateClientController,
      EditClientController,
      GetAllClientsController,
-     GetClientController
+     GetClientController,
+     CreateOrderController
 };
