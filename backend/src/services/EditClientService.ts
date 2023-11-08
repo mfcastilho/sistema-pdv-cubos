@@ -14,6 +14,7 @@ interface AddressDTO {
      district: string;
      city: string;
      state: string;
+     clientId?: string;
 }
 
 
@@ -65,6 +66,7 @@ class EditClientService {
                });
 
                delete addressUpdated.id;
+               delete addressUpdated.clientId;
 
                const clientAddressUpdated = {
                     ...clientUpdated,
