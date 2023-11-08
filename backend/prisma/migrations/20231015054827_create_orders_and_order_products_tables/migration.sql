@@ -14,7 +14,7 @@ CREATE TABLE "products" (
 CREATE TABLE "orders" (
     "id" TEXT NOT NULL,
     "clientId" TEXT NOT NULL,
-    "observation" TEXT NOT NULL,
+    "observation" TEXT,
     "totalValue" INTEGER NOT NULL,
 
     CONSTRAINT "orders_pkey" PRIMARY KEY ("id")
