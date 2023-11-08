@@ -11,6 +11,7 @@ import verifyLoginEmail from "./verifyLoginEmail";
 import verifyLoginPassword from "./verifyLoginPassword";
 import verifyLoginUserFields from "./verifyLoginUserFields";
 import verifyProductFields from "./verifyProductFields";
+import verifyProductStockQuantity from "./verifyProductStockQuantity";
 import verifyToken from "./verifyToken";
 
 
@@ -29,5 +30,6 @@ export {
      validateRequestBody,
      verifyIfCpfExists,
      verifyIfAddressIsRegistered,
-     verifyIfClientExists
+     verifyIfClientExists,
+     verifyProductStockQuantity
 };
