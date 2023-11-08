@@ -6,15 +6,29 @@ const verifyIfClientExists = async (req: Request, res: Response, next: NextFunct
 
      try {
 
-          const { id } = req.params;
+          if(req.baseUrl === "/cliente") {
+               const { id } = req.params;
 
-          const repo = ClientRepository;
+               const repo = ClientRepository;
 
-          const client = await repo.findFirst({
-               where: {id}
-          });
+               const client = await repo.findFirst({
+                    where: {id}
+               });
 
-          if(!client) return res.status(404).json({error: "Cliente não encontrado"});
+               if(!client) return res.status(404).json({error: "Cliente não encontrado"});
+          }
+
+          if(req.baseUrl === "/pedido") {
+               const { clientId } = req.body;
+
+               const repo = ClientRepository;
+
+               const client = await repo.findFirst({
+                    where: {id: clientId}
+               });
+
+               if(!client) return res.status(404).json({error: "Cliente não encontrado"});
+          }
 
           return next();
           

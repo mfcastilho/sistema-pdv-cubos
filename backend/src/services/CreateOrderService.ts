@@ -1,6 +1,8 @@
-import { OrderRepository, OrderProductsRepository } from "../repositories";
+import { OrderRepository, OrderProductsRepository, ProductRepository, ClientRepository } from "../repositories";
+
 import { OrderDTO } from"../dto";
-import { calculateTotalValue, getOrderProductsValues } from "../utils";
+
+import { calculateTotalValue, getOrderProductsValues, sendEmail } from "../utils";
 
 class CreateOrderService {
      async execute({ clientId, observation, orderProducts }: OrderDTO) {
@@ -8,6 +10,10 @@ class CreateOrderService {
           const orderRepo = OrderRepository;
 
           const orderProdRepo = OrderProductsRepository;
+
+          const client = await ClientRepository.findUnique({
+               where: {id: clientId}
+          })
 
           let totalValue = await calculateTotalValue(orderProducts);
 
@@ -36,10 +42,30 @@ class CreateOrderService {
                               orderId: newOrder.id,
                               productId: orderProducts[i].productId
                          }
-                    })
+                    });
+
+                    const product = await ProductRepository.findFirst({
+                         where: {id:orderProducts[i].productId}
+                    });
+
+                    const orderProductQuantity = orderProducts[i].productQuantity;
+
+                    if(product) {
+
+                         product.stockQuantity = product.stockQuantity - orderProductQuantity;
+
+                         await ProductRepository.update({
+                              where: {id:orderProducts[i].productId},
+                              data: product
+                         });
+                    }   
                }    
           }
 
+          
+          if(client) {
+               sendEmail({name: client.name, email: client.email});
+          }
           const orderInfos = await orderRepo.findFirst({
                where: {id: newOrder.id},
                include: { OrderProducts: true }
