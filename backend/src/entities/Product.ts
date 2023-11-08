@@ -1,7 +1,7 @@
 
 export interface Product {
      description: string
-	stock_quantity: number,
+	stockQuantity: number,
 	value: number,
 	categoryId: string
 }
