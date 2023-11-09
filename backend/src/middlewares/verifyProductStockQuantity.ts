@@ -11,7 +11,7 @@ const verifyProductStockQuantity = async (req: Request, res: Response, next: Nex
           });
 
           if(product) {
-               if(product.stockQuantity < orderProducts[i].productQuantity) return res.status(400).json({error: `Não existe essa quantidade em estoque do produto ${product.description}.`});
+               if(product.stockQuantity < orderProducts[i].productQuantity) return res.status(400).json({error: `Não existe essa quantidade em estoque do produto ${product.description}. No momento temos em estoque ${product.stockQuantity} unidades desse produtos.`});
           } 
      }
 
