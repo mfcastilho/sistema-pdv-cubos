@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { CreateClientController, EditClientController, GetAllClientsController, GetClientController } from "../controllers";
+import { CreateClientController, EditClientController, GetAllClientsController, GetClientController } from "../controllers/client";
 
 import { validateRequestBody,
          verifyToken,
@@ -21,5 +21,7 @@ clientRoutes.put("/:id", verifyToken, verifyIfClientExists, verifyIfAddressIsReg
 clientRoutes.get("/", verifyToken, GetAllClientsController.handle);
 
 clientRoutes.get("/:id", verifyToken, verifyIfClientExists, GetClientController.handle);
+
+
 
 export default clientRoutes;

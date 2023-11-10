@@ -4,12 +4,13 @@ import { RegisterProductController,
          EditProductController, 
          GetAllProductsController,
          GetProductController,
-         DeleteProductController } from "../controllers";
+         DeleteProductController } from "../controllers/product";
 
 import { verifyToken, 
          verifyProductFields, 
          verifyIfCategoryExists,
-         verifyIfProductExists } from "../middlewares";
+         verifyIfProductExists,
+         verifyProductDeletion } from "../middlewares";
 
 const productRoutes = Router();
 
@@ -22,6 +23,7 @@ productRoutes.get("/", verifyToken, GetAllProductsController.handle);
 
 productRoutes.get("/:id", verifyToken, verifyIfProductExists, GetProductController.handle);
 
-productRoutes.delete("/:id", verifyToken, verifyIfProductExists, DeleteProductController.handle);
+productRoutes.delete("/:id", verifyToken, verifyIfProductExists, verifyProductDeletion, DeleteProductController.handle);
+
 
 export default productRoutes;
