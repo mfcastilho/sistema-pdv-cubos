@@ -16,7 +16,7 @@ const verifyIfProductExists = async (req: Request, res: Response, next: NextFunc
                where: {id}
           });
 
-          if(!product) return res.status(404).json({error: "Produto não encontrado."});
+          if(!product) return res.status(404).json({error: "Produto não encontrado."}); 
      }
      
      if(req.baseUrl === "/pedido") {
