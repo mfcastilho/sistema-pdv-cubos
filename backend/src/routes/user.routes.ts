@@ -2,7 +2,7 @@ import { Router } from "express";
 
 import {  CreateUserController, 
           GetUserLoggedInfosController,
-          EditUserLoggedInfosController } from "../controllers";
+          EditUserLoggedInfosController } from "../controllers/user";
 
 import {  verifyCreateUserFields, 
           verifyEditUserFields, 
