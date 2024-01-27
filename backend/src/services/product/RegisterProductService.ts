@@ -1,29 +1,41 @@
+import { Express } from 'express';
 import { ProductRepository } from "../../repositories";
-import { convertCurrentToCents } from "../../utils";
+import { convertCurrentToCents, uploadFile} from "../../utils";
 
 
 interface ProductDTO {
-     description:string;
-     stockQuantity:number;
-     value:number;
-     categoryId:string
+     description: string;
+     stockQuantity: number;
+     value: number;
+     categoryId: string;
+     productImage: Express.Multer.File | undefined;
 }
 
 class RegisterProductService {
-     async execute({ description, stockQuantity, value, categoryId }: ProductDTO) {
+     async execute({ description, stockQuantity, value, categoryId, productImage }: ProductDTO) {
 
           const repo = ProductRepository;
 
           const centsValue = convertCurrentToCents(value);
 
-          const productRegistered = await repo.create({
+          let productRegistered = await repo.create({
                data: {
                     description, 
-                    stockQuantity, 
+                    stockQuantity: Number(stockQuantity), 
                     value: centsValue, 
                     categoryId
                }
           });
+          
+          if(productImage) {
+               const dir = `produtos/${productRegistered.id}`
+               const url = await uploadFile(dir, productImage);
+
+               productRegistered = await repo.update({
+                    data: {productImage:url},
+                    where: {id: productRegistered.id}
+               })
+          }
 
           return productRegistered;
      }

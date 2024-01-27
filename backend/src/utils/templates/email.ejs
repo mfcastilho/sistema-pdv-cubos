@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Mensagem de Confirmação</title>
+</head>
+<body>
+     <div class="container">
+          <header style="background-color: #010b14; min-height: 6rem; display: flexbox; flex-direction: column;">
+               <div class="top-part" style="display: flex; justify-content: flex-start;"><img style="height: 8rem;" src="https://media.licdn.com/dms/image/D4D0BAQEMWYrgnbllqA/company-logo_200_200/0/1664208604363?e=2147483647&v=beta&t=IeSqFonFvb9d5ZUYP1WGJN_l6gk4TFLv9jCtyRfsjZM" alt=""></div>
+          </header>
+          <div class="box">
+
+               <h1 style="font-weight: bold; text-transform: uppercase; text-align: center;">Pedido Realizado</h1>
+
+               <div class="middle-part" style="margin: 0 8%; background-color: rgb(233, 231, 231); padding: 5%; border-radius: 1rem;">
+
+                    <p style="font-size: 1.4rem;">Olá <strong style="font-size: 1.4rem; text-transform: uppercase;"><%= name %></strong></p>
+
+                    <p style="font-size: 1.4rem;">O pedido de número <strong><%= orderNumber %></strong>, foi realizado com sucesso.</p>
+
+                    <p style="font-size: 1.4rem;">Assim que o pagamento for confirmado os produtos serão separados e liberados para entrega.</p>
+
+                    <div class="order-details-box">
+                         <h3 style="text-transform: uppercase; margin-top: 4rem;">Detalhes do Pedido</h3>
+
+                         <div class="wrapper-order-infos" style="display: flex;align-items: flex-end;">
+                              <strong>Número de Identificação: </strong>
+                              <span><%= orderNumber %></span>
+                         </div>
+
+                         <div class="wrapper-order-infos" style="display: flex;align-items: flex-end;">
+                              <strong>Total: </strong>
+                              <span><%= totalValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) %></span>
+                         </div>
+
+                         <div class="wrapper-order-infos" style="display: flex;align-items: flex-end;">
+                              <strong>Observação: </strong>
+                              <span><%= observation %></span>
+                         </div>
+
+                         <div class="wrapper-order-infos">
+                              <strong>Produtos </strong>
+                              <ul>
+                                   <% products.forEach(function(product) { %>
+                                        <li>
+                                             <%= product.description %>
+                                             <ul>
+                                                  <li>
+                                                       <strong>
+                                                            Quantidade: 
+                                                       </strong>
+                                                       <%= product.productQuantity %>
+                                                  </li>
+                                                  <li> 
+                                                       <strong>
+                                                            Valor Unitário: 
+                                                       </strong>
+                                                       <%= product.value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) %>
+                                                  </li>
+                                             </ul>
+                                        </li>
+                                        
+                                   <% }); %>
+                              </ul>
+                              
+                         </div>
+                    </div>
+               </div>
+          </div>
+          <br>
+          <hr>
+     </div>
+     
+</body>
+</html>

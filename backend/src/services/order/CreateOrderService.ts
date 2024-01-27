@@ -2,7 +2,8 @@ import { OrderRepository, OrderProductsRepository, ProductRepository, ClientRepo
 
 import { OrderDTO } from"../../dto";
 
-import { calculateTotalValue, getOrderProductsValues, sendEmail } from "../../utils";
+import { calculateTotalValue, getOrderProductsValues, sendEmail, convertCentsToCurrent } from "../../utils";
+import { response } from "express";
 
 class CreateOrderService {
      async execute({ clientId, observation, orderProducts }: OrderDTO) {
@@ -62,16 +63,39 @@ class CreateOrderService {
                }    
           }
 
-          
-          if(client) {
-               sendEmail({name: client.name, email: client.email});
-          }
+          const orderProductsInfos = await orderProdRepo.findMany({
+               where: {orderId: newOrder.id},
+               include: { product: true, order: true }
+          });
+
+
           const orderInfos = await orderRepo.findFirst({
                where: {id: newOrder.id},
                include: { OrderProducts: true }
           });
 
-          return orderInfos;  
+          const productMapped = orderProductsInfos.map(orderProduct => (
+               {
+                    id: orderProduct.productId,
+                    description: orderProduct.product.description,
+                    value: convertCentsToCurrent(orderProduct.product.value),
+                    productQuantity: orderProduct.productQuantity,
+                    productImage: orderProduct.product.productImage
+               }
+          ));
+
+          const response = {
+               id: orderInfos?.id,
+               observation: orderInfos?.observation,
+               totalValue: convertCentsToCurrent(orderInfos?.totalValue!),
+               products: productMapped
+          }
+          
+          if(client) {
+               sendEmail({name: client.name, email: client.email, orderNumber: response.id, observation: response.observation, totalValue: response.totalValue, products: response.products});
+          }
+
+          return response;  
      }
 }
 

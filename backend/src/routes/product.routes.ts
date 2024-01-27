@@ -1,4 +1,5 @@
 import { Router } from "express";
+import multer from "../config/multer";
 
 import { RegisterProductController, 
          EditProductController, 
@@ -15,9 +16,9 @@ import { verifyToken,
 const productRoutes = Router();
 
 
-productRoutes.post("/", verifyToken, verifyProductFields, verifyIfCategoryExists, RegisterProductController.handle);
+productRoutes.post("/", verifyToken, multer.single("productImage"), verifyProductFields, verifyIfCategoryExists, RegisterProductController.handle);
 
-productRoutes.put("/:id", verifyToken, verifyProductFields, verifyIfCategoryExists, EditProductController.handle);
+productRoutes.put("/:id", verifyToken, verifyIfProductExists, multer.single("productImage"), verifyProductFields, verifyIfCategoryExists, EditProductController.handle);
 
 productRoutes.get("/", verifyToken, GetAllProductsController.handle);
 

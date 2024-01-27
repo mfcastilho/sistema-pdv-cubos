@@ -11,6 +11,8 @@ class DeleteProductController {
 
                const productDeleted = await service.execute(id);
 
+               if(productDeleted instanceof Error) return res.status(400).json({error: productDeleted.message});
+
                return res.status(200).json(productDeleted);
                
           } catch (error) {

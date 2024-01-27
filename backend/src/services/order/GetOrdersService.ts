@@ -1,8 +1,4 @@
-import { OrderRepository, OrderProductsRepository, ProductRepository, ClientRepository } from "../../repositories";
-
-import { OrderDTO } from"../../dto";
-
-import { calculateTotalValue, getOrderProductsValues, sendEmail } from "../../utils";
+import { OrderRepository } from "../../repositories";
 
 class GetOrdersService {
      async execute(clientId: string | undefined) {
@@ -20,10 +16,7 @@ class GetOrdersService {
                include: { OrderProducts: true }
           });
 
-          console.log(orders);
-
-          return orders;
-          
+          return orders;    
      }
 }
 
