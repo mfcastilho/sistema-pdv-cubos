@@ -29,12 +29,12 @@ O projeto adota uma arquitetura em camadas para proporcionar uma estrutura organ
 - PostgreSQL
 - JWT (JSON Web Token)
 - Bcrypt (Para criptografia de senhas)
-- AWS SDK (Para integração com o SendGrid)
+- Backblaze (Serviço de armazenamento em nuvem utilizado para hospedar as imagens dos produtos)
+- AWS SDK (Para integração com o Backblaze)
 - EJS (Para criar templates HTML dinâmicos)
 - UUID (Para geração de identificadores únicos)
 - Multer (Middleware para manipulação de formulários e upload de arquivos)
 - SendGrid API (Para o envio de emails)
-- Backblaze (Serviço de armazenamento em nuvem utilizado para hospedar as imagens dos produtos)
 - Joi (Para validação de dados)
 
 ## Configuração do Ambiente
