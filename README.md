@@ -382,7 +382,7 @@ Atenciosamente, Equipe de Desenvolvimento PVD
 </details>
   
 
- ## Desenvolvedores
+ ## Desenvolvedor
 
 - Mario Frederico Castilho - Desenvolvedor BackEnd - <a href="https://github.com/mfcastilho" target="_blank">Perfil GitHub</a>
 
