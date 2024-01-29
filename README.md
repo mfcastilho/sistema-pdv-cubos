@@ -1,10 +1,12 @@
 # Sistema PVD - Backend API
 
+## Descrição
+
 Bem-vindo(a) ao Sistema PVD (Ponto de Venda) - Backend API! Este projeto consiste em uma API desenvolvida para um sistema de PDV (Frente de Caixa) como parte do Desafio do Módulo 5 da Cubos Academy. A API oferece funcionalidades para gerenciar categorias, clientes, pedidos, produtos e usuários.
 
 Observação: Este projeto representa uma melhoria em relação ao desafio original, pois substituiu o uso de Knex e JavaScript por Prisma e TypeScript.
 
-## Descrição
+## Arquitetura em Camadas
 
 O projeto adota uma arquitetura em camadas para proporcionar uma estrutura organizada e modular. Cada camada desempenha um papel específico, promovendo a escalabilidade e a manutenção do código. As camadas incluem:
 
