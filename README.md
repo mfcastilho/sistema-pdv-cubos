@@ -28,14 +28,14 @@ O projeto adota uma arquitetura em camadas para proporcionar uma estrutura organ
 - Prisma
 - PostgreSQL
 - JWT (JSON Web Token)
-- Bcrypt (para criptografia de senhas)
-- AWS SDK (para integração com o SendGrid)
-- EJS (para criar templates HTML dinâmicos)
-- UUID (para geração de identificadores únicos)
+- Bcrypt (Para criptografia de senhas)
+- AWS SDK (Para integração com o SendGrid)
+- EJS (Para criar templates HTML dinâmicos)
+- UUID (Para geração de identificadores únicos)
 - Multer (Middleware para manipulação de formulários e upload de arquivos)
 - SendGrid API (Para o envio de emails)
 - Backblaze (Serviço de armazenamento em nuvem utilizado para hospedar as imagens dos produtos)
-- Joi (para validação de dados)
+- Joi (Para validação de dados)
 
 ## Configuração do Ambiente
 
