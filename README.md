@@ -33,6 +33,7 @@ O projeto adota uma arquitetura em camadas para proporcionar uma estrutura organ
 - EJS (para criar templates HTML dinâmicos)
 - UUID (para geração de identificadores únicos)
 - Multer (Middleware para manipulação de formulários e upload de arquivos)
+- SendGrid API (Para o envio de emails)
 - Backblaze (Serviço de armazenamento em nuvem utilizado para hospedar as imagens dos produtos)
 - Joi (para validação de dados)
 
