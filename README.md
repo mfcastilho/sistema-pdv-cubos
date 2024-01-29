@@ -4,7 +4,7 @@
 
 Bem-vindo(a) ao Sistema PVD (Ponto de Venda) - Backend API! Este projeto consiste em uma API desenvolvida para um sistema de PDV (Frente de Caixa) como parte do Desafio do Módulo 5 da Cubos Academy. A API oferece funcionalidades para gerenciar categorias, clientes, pedidos, produtos e usuários.
 
-Observação: Este projeto representa algumas melhorias em relação ao desafio original.
+- Observação: Este projeto representa algumas melhorias em relação ao desafio original.
 
 ### Melhorias: 
 
