@@ -395,10 +395,7 @@ Atenciosamente, Equipe de Desenvolvimento PVD
 
 - Mario Frederico Castilho - Desenvolvedor BackEnd - <a href="https://github.com/mfcastilho" target="_blank">Perfil GitHub</a>
 
-## Demais informações
 
-- Este projeto foi desenvolvido baseado no Desafio do Módulo 5 da Cubos Academy. Sinta-se à vontade para explorar, usar e contribuir!
-- Observação: Este projeto representa uma melhoria em relação ao desafio original, pois substituiu o uso de Knex e JavaScript por Prisma e TypeScript.
 
 ## Agradecimentos
 
