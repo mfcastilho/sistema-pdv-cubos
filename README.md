@@ -131,8 +131,9 @@ npm run dev
     "error": "E-mail ou senha incorretos."
   }
   ```
+#### IMPORTANTE
 
-Para autenticar as demais requisições, inclua o token JWT no cabeçalho da seguinte forma:
+- Para autenticar as demais requisições, inclua o token JWT no cabeçalho da seguinte forma:
 
 ```http
 Authorization: Bearer seu_token_jwt
@@ -157,6 +158,15 @@ Permite cadastrar um novo usuário no sistema.
 }
 ```
 
+#### Response:
+```json
+{
+	"id": "ID do usuário cadastrado",
+	"name": "Nome do Usuário",
+	"email": "usuario@teste.com"
+}
+```
+
 ### Efetuar Login (POST /login)
 
 Realiza o login de um usuário cadastrado no sistema.
@@ -168,6 +178,7 @@ Realiza o login de um usuário cadastrado no sistema.
   "password": "senha123"
 }
 ```
+
 ### Detalhar Perfil do Usuário Logado (GET /usuario)
 
 Retorna os dados do perfil do usuário logado.
