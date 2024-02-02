@@ -13,6 +13,7 @@ Bem-vindo(a) ao Sistema PVD (Ponto de Venda) - Backend API! Este projeto consist
 - Uso de UUID ao invés de identificadores numéricos
 - Uso de EJS ao invés de HTML
 - Uso do SendGrid ao invés do Mailtrap
+- Nomes dos arquivos, variáveis, classes e funções em inglês.
 
 
 ## Arquitetura em Camadas
