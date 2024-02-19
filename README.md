@@ -57,9 +57,24 @@ Antes de começar, certifique-se de seguir estas instruções para configurar o 
 2. Instale o TypeScript globalmente: `npm install -g typescript`
 3. Clone este repositório: `git clone https://seu-repositorio.git`
 4. Instale as dependências: `npm install`
-5. Crie o banco de dados antes de rodar as migrations e seeders.
-6. Configure as informações do seu banco de dados no arquivo `.env`.
-7. Execute as migrations e seeders: `npx prisma migrate dev` e `npx prisma db seed`
+5. Crie o arquivo tsconfig: `npx tsc --init`
+6. Insira a seguinte configuração no arquiv tsconfig: `{
+  "compilerOptions": {
+    "target": "es2016",                                  
+    "module": "commonjs",                                
+    "sourceMap": true,                               
+    "outDir": "dist",                                   
+    "esModuleInterop": true,                            
+    "forceConsistentCasingInFileNames": true,           
+    "strict": true, 
+    "lib": ["esnext"],                                     
+    "skipLibCheck": true                                
+  }
+}`
+7. Rode o prisma na sua máquina: `npx prisma init`
+8. Crie o banco de dados antes de rodar as migrations e seeders.
+9. Configure as informações do seu banco de dados no arquivo `.env`.
+10. Execute as migrations e seeders: `npx prisma migrate dev` e `npx prisma db seed`
 
 ## Como Usar
 
