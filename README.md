@@ -76,9 +76,25 @@ Antes de começar, certifique-se de seguir estas instruções para configurar o 
 }
 ```  
 8. Inicialize o seu projeto Prisma: `npx prisma init`
-9. Crie o banco de dados antes de rodar as migrations e seeders.
-10. Configure as informações do seu banco de dados no arquivo `.env`.
-11. Execute as migrations e seeders: `npx prisma migrate dev` e `npx prisma db seed`
+9. Insira dentro da propiredade "prisma" do arquivo packege.json, o seguinte script:
+
+```json
+"prisma": {
+   "seed": "ts-node ./prisma/seeders/categorySeed.ts"
+ }
+```
+10. Insira dentro da propiredade "script" do arquivo packege.json, o seguinte script:
+
+```json
+"scripts": {
+   "test": "jest",
+   "dev": "ts-node-dev --transpile-only ./src/server/index.ts",
+   "start": ""
+}
+```    
+11. Crie o banco de dados antes de rodar as migrations e seeders.
+12. Configure as informações do seu banco de dados no arquivo `.env`.
+13. Execute as migrations e seeders: `npx prisma migrate dev` e `npx prisma db seed`
 
 ## Como Usar
 
