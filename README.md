@@ -76,14 +76,14 @@ Antes de começar, certifique-se de seguir estas instruções para configurar o 
 }
 ```  
 8. Inicialize o seu projeto Prisma: `npx prisma init`
-9. Insira dentro da propiredade "prisma" do arquivo packege.json, o seguinte script:
+9. Insira dentro da propriedade "prisma" do arquivo package.json, o seguinte script:
 
 ```json
 "prisma": {
    "seed": "ts-node ./prisma/seeders/categorySeed.ts"
  }
 ```
-10. Insira dentro da propiredade "script" do arquivo packege.json, o seguinte script:
+10. Insira dentro da propriedade "script" do arquivo packege.json, o seguinte script:
 
 ```json
 "scripts": {
