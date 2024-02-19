@@ -75,7 +75,7 @@ Antes de começar, certifique-se de seguir estas instruções para configurar o 
   }
 }
 ```  
-8. Rode o prisma na sua máquina: `npx prisma init`
+8. Inicialize o seu projeto Prisma: `npx prisma init`
 9. Crie o banco de dados antes de rodar as migrations e seeders.
 10. Configure as informações do seu banco de dados no arquivo `.env`.
 11. Execute as migrations e seeders: `npx prisma migrate dev` e `npx prisma db seed`
