@@ -83,7 +83,7 @@ Antes de começar, certifique-se de seguir estas instruções para configurar o 
    "seed": "ts-node ./prisma/seeders/categorySeed.ts"
  }
 ```
-10. Insira dentro da propriedade "script" do arquivo packege.json, o seguinte script:
+10. Insira dentro da propriedade "script" do arquivo package.json, o seguinte script:
 
 ```json
 "scripts": {
