@@ -58,7 +58,10 @@ Antes de começar, certifique-se de seguir estas instruções para configurar o 
 3. Clone este repositório: `git clone https://seu-repositorio.git`
 4. Instale as dependências: `npm install`
 5. Crie o arquivo tsconfig: `npx tsc --init`
-6. Insira a seguinte configuração no arquiv tsconfig: `{
+6. Insira a seguinte configuração no arquivo tsconfig:
+
+```json
+{
   "compilerOptions": {
     "target": "es2016",                                  
     "module": "commonjs",                                
@@ -70,11 +73,12 @@ Antes de começar, certifique-se de seguir estas instruções para configurar o 
     "lib": ["esnext"],                                     
     "skipLibCheck": true                                
   }
-}`
-7. Rode o prisma na sua máquina: `npx prisma init`
-8. Crie o banco de dados antes de rodar as migrations e seeders.
-9. Configure as informações do seu banco de dados no arquivo `.env`.
-10. Execute as migrations e seeders: `npx prisma migrate dev` e `npx prisma db seed`
+}
+```  
+8. Rode o prisma na sua máquina: `npx prisma init`
+9. Crie o banco de dados antes de rodar as migrations e seeders.
+10. Configure as informações do seu banco de dados no arquivo `.env`.
+11. Execute as migrations e seeders: `npx prisma migrate dev` e `npx prisma db seed`
 
 ## Como Usar
 
